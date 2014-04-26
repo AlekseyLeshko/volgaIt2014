@@ -18,6 +18,12 @@ span.mailMessage {
   font-size: 15px;
 }
 
+span.mailMessage:hover {
+  color: #f00;
+  font-size: 15px;
+  cursor: pointer;
+}
+
 td.mailContact,
 span.mailSubject {
   font-weight: bold;

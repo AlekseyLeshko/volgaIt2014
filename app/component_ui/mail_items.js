@@ -49,9 +49,15 @@ define(
         }
       };
 
+      this.viewMail = function(ev, data) {
+        // console.log(this.attr.selectedMailItems);
+        this.trigger('uiMailBoxRequested', { mailItems: this.attr.selectedMailItems});
+      };
+
       this.after('initialize', function() {
         this.on(document, 'dataMailItemsServed', this.renderItems);
         this.on(document, 'uiDeleteMail', this.requestDeletion);
+        this.on(document, 'uiViewMail', this.viewMail);
 
         this.on('uiMailItemSelectionChanged', this.updateMailItemSelections);
         this.on(document, 'uiFolderSelectionChanged', this.updateFolderSelections);

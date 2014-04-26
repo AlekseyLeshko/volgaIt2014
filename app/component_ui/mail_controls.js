@@ -17,6 +17,7 @@ define(
         moveControlSelector: '#move_mail',
         forwardControlSelector: '#forward',
         replyControlSelector: '#reply',
+        viewControlSelector: '#view_mail',
         singleItemActionSelector: 'button.single-item'
       });
 
@@ -35,6 +36,10 @@ define(
         }
       };
 
+      this.requestViewMail = function(type, relatedMailId) {
+        this.trigger('uiComposeBoxRequested', {type: type, relatedMailId: relatedMailId});
+      };
+
       this.deleteMail = function(ev, data) {
         this.trigger('uiDeleteMail');
       };
@@ -51,12 +56,17 @@ define(
         this.trigger('uiReplyToMail');
       };
 
+      this.viewMail = function(ev, data) {
+        this.trigger('uiViewMail');
+      };
+
       this.after('initialize', function() {
         this.on('.mail-action', 'click', {
           'deleteControlSelector': this.deleteMail,
           'moveControlSelector': this.moveMail,
           'forwardControlSelector': this.forwardMail,
-          'replyControlSelector': this.replyToMail
+          'replyControlSelector': this.replyToMail,
+          'viewControlSelector': this.viewMail,
         });
         this.on(document, 'uiMailItemSelectionChanged', this.restyleOnSelectionChange);
         this.on(document, 'uiFolderSelectionChanged', this.disableAll);

@@ -6,22 +6,26 @@ define(
     'app/component_data/mail_items',
     'app/component_data/compose_box',
     'app/component_data/move_to',
+    'app/component_data/mail_box',
     'app/component_ui/mail_items',
     'app/component_ui/mail_controls',
     'app/component_ui/compose_box',
     'app/component_ui/folders',
-    'app/component_ui/move_to_selector'
+    'app/component_ui/move_to_selector',
+    'app/component_ui/mail_box'
   ],
 
   function(
     MailItemsData,
     ComposeBoxData,
     MoveToData,
+    MailBoxData,
     MailItemsUI,
     MailControlsUI,
     ComposeBoxUI,
     FoldersUI,
-    MoveToSelectorUI) {
+    MoveToSelectorUI,
+    MailBoxUI) {
 
     function initialize() {
       MailItemsData.attachTo(document);
@@ -40,6 +44,8 @@ define(
         moveActionSelector: '#move_mail',
         selectedFolders: ['inbox']
       });
+      MailBoxUI.attachTo('#mail_box');
+      MailBoxData.attachTo(document);
     }
 
     return initialize;

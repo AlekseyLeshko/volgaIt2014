@@ -30,6 +30,15 @@ define(
           "time": 1334891976104,
           "subject": "Consectetur adipiscing elit",
           "message": "Vestibulum vestibulum varius diam in iaculis. Praesent ultrices dui vitae nibh malesuada non iaculis ante vulputate. Suspendisse feugiat ultricies egestas. Aenean a odio libero. Quisque mollis leo et est euismod sit amet dignissim sapien venenatis. Morbi interdum adipiscing massa"
+        },
+        {
+          "id": "22222",
+          "contact_id": "2",
+          "author_id": "1",
+          "folders": ["inbox"],
+          "time": 1334891976102,
+          "subject": "Consectetur adipiscing elit",
+          "message": "Vestibulum vestibulum varius diam in iaculis. Praesent ultrices dui vitae nibh malesuada non iaculis ante vulputate. Suspendisse feugiat ultricies egestas. Aenean a odio libero. Quisque mollis leo et est euismod sit amet dignissim sapien venenatis. Morbi interdum adipiscing massa"
         }]
     };
     return data;

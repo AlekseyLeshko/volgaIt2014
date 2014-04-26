@@ -52,10 +52,30 @@ define(
       {{/moveToItems}}\
       </ul>';
 
+    var mailBox =
+    '{{#mail}}\
+      <div class="modal-header compose-header">\
+        <div id="mail_id" style="margin-bottom: 10px;">\
+          {{id}}\
+        </div>\
+        <div id="contact_id" style="margin-bottom: 10px;">\
+          {{contact_id}}\
+        </div>\
+        <div id="subject" style="margin-bottom: 10px;">\
+          {{subject}}\
+        </div>\
+        <div id="message" style="margin-bottom: 10px;">\
+          {{message}}\
+        </div>\
+        <button id="cancel_composed" class="btn">Cancel</button>\
+      </div>\
+    {{/mail}}';
+
     return {
       mailItem: mailItem,
       composeBox: composeBox,
-      moveToSelector: moveToSelector
+      moveToSelector: moveToSelector,
+      mailBox: mailBox
     }
   }
 

@@ -4,6 +4,9 @@ define(
   function() {
     return {
       folders: ["inbox", "sent", "trash", "important"],
+      owner: {
+        "contact_id": "1"
+      },
       contacts: [
         {
           "id": "1",

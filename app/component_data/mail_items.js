@@ -41,7 +41,7 @@ define(
       };
 
       this.getItemForView = function(itemData) {
-        var thisItem, thisContact, msg
+        var thisItem, thisContact, msg;
 
         thisItem = {id: itemData.id, important: itemData.important};
 

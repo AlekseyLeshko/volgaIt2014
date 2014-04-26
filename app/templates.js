@@ -24,15 +24,7 @@ define(
       {{/mailItems}}';
 
     var composeBox =
-      '<div id="compose_from" class="modal-header compose-header">\
-        From: <select id="author_select">\
-          {{^reply}}<option id="author_hint" class="hint" style="color:#CACACA" >[Select author]</option>{{/reply}}\
-          {{#contacts}}\
-           <option id="{{id}}"{{#author}} selected{{/author}}>{{firstName}} {{lastName}}</option>\
-          {{/contacts}}\
-        </select>\
-      </div>\
-      <div id="compose_to" class="modal-header compose-header">\
+      '<div id="compose_to" class="modal-header compose-header">\
         To: <select id="recipient_select">\
           {{^reply}}<option id="recipient_hint" class="hint" style="color:#CACACA" >[Select Recipient]</option>{{/reply}}\
           {{#contacts}}\

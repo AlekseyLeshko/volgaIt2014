@@ -73,7 +73,7 @@ define(
 
       this.send = function(ev, data) {
         data.folders = ["sent"];
-        if (parseInt(data.to_id, 10) == parseInt(data.from_id, 10)) {
+        if (parseInt(data.to_id, 10) === this.getCurrentUserId()) {
           data.folders.push("inbox");
         }
 
@@ -82,13 +82,17 @@ define(
         this.trigger('dataMailItemsRefreshRequested', {folder: data.currentFolder});
       };
 
+      this.getCurrentUserId = function() {
+        return parseInt(this.attr.dataStore.owner.contact_id, 10);
+      };
+
       this.createMail = function(data) {
         var date = Date.now();
         var mail = {
           id: String(date),
           subject: data.subject,
           message: data.message,
-          autrhor_id: data.from_id,
+          autrhor_id: this.getCurrentUserId(),
           contact_id: data.to_id,
           time: date,
           folders: data.folders,

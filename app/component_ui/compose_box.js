@@ -31,10 +31,6 @@ define(
         recipientSelector: '#recipient_select',
         recipientHintSelector: '#recipient_hint',
         selectedRecipientSelector: '#recipient_select :selected',
-
-        authorSelector: '#author_select',
-        authorHintSelector: '#author_hint',
-        selectedAuthorSelector: '#author_select :selected',
         hintSelector: 'div.hint'
       });
 
@@ -67,7 +63,6 @@ define(
       this.requestSend = function() {
         var data = {
           to_id: this.select('selectedRecipientSelector').attr('id'),
-          from_id: this.select('selectedAuthorSelector').attr('id'),
           subject: this.select('subjectSelector').text(),
           message: this.select('messageSelector').text(),
           currentFolder: this.attr.selectedFolders[0]

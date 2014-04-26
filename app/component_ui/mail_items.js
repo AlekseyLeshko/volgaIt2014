@@ -40,11 +40,13 @@ define(
       }
 
       this.requestDeletion = function() {
-        this.trigger('uiMoveItemsRequested', {
-          itemIds: this.attr.selectedMailItems,
-          fromFolder: this.attr.selectedFolders[0],
-          toFolder: this.attr.deleteFolder
-        });
+        if (confirm("You sure?")) {
+          this.trigger('uiMoveItemsRequested', {
+            itemIds: this.attr.selectedMailItems,
+            fromFolder: this.attr.selectedFolders[0],
+            toFolder: this.attr.deleteFolder
+          });
+        }
       };
 
       this.after('initialize', function() {

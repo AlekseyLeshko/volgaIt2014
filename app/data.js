@@ -22,6 +22,7 @@ define(
         {
           "id": "1",
           "contact_id": "2",
+          "author_id": "1",
           "folders": ["inbox"],
           "time": 1334891976104,
           "subject": "Consectetur adipiscing elit",

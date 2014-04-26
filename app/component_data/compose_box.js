@@ -17,6 +17,7 @@ define(
       this.defaultAttrs({
         dataStore: dataStore,
         recipientHintId: 'recipient_hint',
+        authorHintId: 'author_hint',
         subjectHint: 'Subject',
         messageHint: 'Message',
         toHint: 'To',
@@ -72,9 +73,12 @@ define(
 
 
       this.send = function(ev, data) {
+        console.log(this);
+        console.log(data);
         this.attr.dataStore.mail.push({
           id: String(Date.now()),
           contact_id: data.to_id,
+          autrhor_id: data.from_id,
           folders: ["sent"],
           time: Date.now(),
           subject: data.subject,

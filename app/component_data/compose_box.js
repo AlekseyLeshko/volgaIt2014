@@ -71,20 +71,29 @@ define(
         return relatedMail && relatedMail.contact_id || this.attr.recipientHintId;
       };
 
-
       this.send = function(ev, data) {
-        console.log(this);
-        console.log(data);
-        this.attr.dataStore.mail.push({
-          id: String(Date.now()),
-          contact_id: data.to_id,
-          autrhor_id: data.from_id,
-          folders: ["sent"],
-          time: Date.now(),
-          subject: data.subject,
-          message: data.message
-        });
+        data.folders = ["sent"];
+        if (parseInt(data.to_id, 10) == parseInt(data.from_id, 10)) {
+          data.folders.push("inbox");
+        }
+
+        var mail = this.createMail(data);
+        this.attr.dataStore.mail.push(mail);
         this.trigger('dataMailItemsRefreshRequested', {folder: data.currentFolder});
+      };
+
+      this.createMail = function(data) {
+        var date = Date.now();
+        var mail = {
+          id: String(date),
+          subject: data.subject,
+          message: data.message,
+          autrhor_id: data.from_id,
+          contact_id: data.to_id,
+          time: date,
+          folders: data.folders,
+        };
+        return mail;
       };
 
       this.after("initialize", function() {

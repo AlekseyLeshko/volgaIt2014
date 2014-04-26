@@ -19,13 +19,8 @@ define(
       });
 
       this.launchMailBox = function(ev, data) {
-        // console.log(data);
-        // var focusSelector = (data.type == this.attr.replyMailType) ? 'messageSelector' : 'toSelector';
         this.$node.html(data.markup).show();
-        // this.select(focusSelector).focus();
       };
-
-
 
       this.cancel = function() {
         this.$node.html('').hide();
@@ -43,10 +38,6 @@ define(
         this.on(document, "click", {
           'cancelSelector': this.cancel,
         });
-
-        // this.on('.mail-action', 'click', {
-          // 'viewControlSelector': this.viewMail
-        // });
       });
     }
   }

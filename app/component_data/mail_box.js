@@ -19,31 +19,16 @@ define(
       });
 
       this.serveMailBox = function(ev, data) {
-        // console.log(data);
         var markup = this.renderMailBox(data.type, data.mailItems);
-        // console.log(markup);
         this.trigger("dataMailBoxServed", {
           markup: markup,
           type: data.type });
       };
 
       this.renderMailBox = function(type, mailId) {
-        // var recipientId = this.getRecipientId(type, relatedMailId);
-        // var contacts = this.attr.dataStore.contacts.map(function(contact) {
-        //   contact.recipient = (contact.id == recipientId);
-        //   return contact;
-        // });
-
-        // var self = this;
-
         var obj = this.attr.dataStore.mail.filter(function(each) {
-          // console.log(each.id);
-          // console.log(self.isNumber(each));
-          console.log(parseInt(each.id, 10) ===  parseInt(mailId, 10));
-
-          return parseInt(each.id, 10) ===  parseInt(mailId, 10);
+          return parseInt(each.id, 10) === parseInt(mailId, 10);
         })[0];
-        console.log(obj);
 
         return Mustache.render(templates.mailBox, { mail: obj });
       };

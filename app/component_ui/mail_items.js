@@ -50,7 +50,6 @@ define(
       };
 
       this.viewMail = function(ev, data) {
-        // console.log(this.attr.selectedMailItems);
         this.trigger('uiMailBoxRequested', { mailItems: this.attr.selectedMailItems});
       };
 

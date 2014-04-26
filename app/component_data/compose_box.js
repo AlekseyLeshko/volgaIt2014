@@ -72,21 +72,29 @@ define(
       };
 
       this.send = function(ev, data) {
-        data.folders = ["sent"];
-        if (parseInt(data.to_id, 10) === this.getCurrentUserId()) {
-          data.folders.push("inbox");
+        this.createMailAndSend(data, "sent");
+
+        if (this.getCurrentUserId() === this.getRecipientId(data)) {
+          this.createMailAndSend(data, "inbox");
         }
 
-        var mail = this.createMail(data);
-        this.attr.dataStore.mail.push(mail);
         this.trigger('dataMailItemsRefreshRequested', {folder: data.currentFolder});
+      };
+
+      this.getRecipientId = function(data) {
+        return parseInt(data.to_id, 10);
+      }
+
+      this.createMailAndSend = function(data, folder) {
+        var mail = this.createMail(data, folder);
+        this.attr.dataStore.mail.push(mail);
       };
 
       this.getCurrentUserId = function() {
         return parseInt(this.attr.dataStore.owner.contact_id, 10);
       };
 
-      this.createMail = function(data) {
+      this.createMail = function(data, folder) {
         var date = Date.now();
         var mail = {
           id: String(date),
@@ -95,7 +103,7 @@ define(
           autrhor_id: this.getCurrentUserId(),
           contact_id: data.to_id,
           time: date,
-          folders: data.folders,
+          folders: [folder],
         };
         return mail;
       };

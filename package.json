@@ -2,7 +2,7 @@
   "private": true,
   "name": "volga it 2014",
   "version": "0.0.0",
-  "description": "",
+  "description": "Best work!!!",
   "author": {
     "name": "Aleksey Leshko",
     "url": "https://github.com/AlekseyLeshko"
@@ -13,7 +13,11 @@
     "url": "https://github.com/AlekseyLeshko/volgaIt2014"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-qunit": "~0.4.0",
+    "qunitjs": "~1.14.0"
+  },
   "scripts": {
     "test": "grunt test"
   },
